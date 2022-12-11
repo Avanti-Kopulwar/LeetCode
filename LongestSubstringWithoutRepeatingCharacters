@@ -1,0 +1,26 @@
+class Solution {
+    public static int lengthOfLongestSubstring(String s) {
+        String result = "";
+        char[] array = s.toCharArray();
+            for (int i = 0; i < s.length(); i++) {
+                String temp = "";
+                for (int j = i; j < s.length(); j++) {
+                    if (!temp.contains(String.valueOf(array[j]))) {
+                        temp = temp + array[j];
+                    } else {
+                        break;
+                    }
+                }
+                if (result.length() < temp.length()) {
+                    result = temp;
+                }
+            }
+        return result.length();
+    }
+}
+
+/*
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+*/
